@@ -1,15 +1,8 @@
-name: Render video
+name: Render Intro
+
 on:
   workflow_dispatch:
-    inputs:
-      titleText:
-        description: "Which text should it say?"
-        required: true
-        default: "Welcome to Remotion"
-      titleColor:
-        description: "Which color should it be in?"
-        required: true
-        default: "black"
+
 jobs:
   render:
     name: Render video
@@ -20,11 +13,14 @@ jobs:
       - run: sudo apt update
       - run: sudo apt install ffmpeg
       - run: npm i
+        working-directory: ./remotion
       - run: echo $WORKFLOW_INPUT > input-props.json
+        working-directory: ./remotion
         env:
           WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
       - run: npm run build -- --props="./input-props.json"
+        working-directory: ./remotion
       - uses: actions/upload-artifact@v2
         with:
           name: out.mp4
-          path: out/video.mp4
+          path: remotion/out/video.mp4
