@@ -1,5 +1,12 @@
-import { useVideoConfig, Series } from 'remotion';
+import { useVideoConfig, Series, useCurrentFrame } from 'remotion';
 import { fadeDuration, FadeIn, FadeOut } from './Fade';
+
+export function useStartFrame() {
+  const frame = useCurrentFrame();
+  const videoConfig = useVideoConfig();
+
+  return frame - Math.round(fadeDuration * videoConfig.fps)
+}
 
 export function useFrames() {
   const videoConfig = useVideoConfig();
