@@ -1,0 +1,59 @@
+<pause 1s>Welcome to our guide on getting started with Rete js. In this guide, I will lead you through the process of creating your first application and provide explanations of the main components of the framework.
+---
+Let's navigate to the documentation for a tool called Rete Kit. <pause 2s>Here you can find a description of its capabilities and instructions for usage. At the moment, we are interested in creating a new application.<pause 2.5s>
+---
+Now let's switch to our terminal and enter the following command.<pause 2s> Once the tool is loaded, you will be prompted to choose the name of the created project, the stack, its version, and the features you want to add to the application. As a result, an application will be generated using the chosen stack, and template code along with framework dependencies will be set up. Note that you can opt for a different set of features and execute the command again without the need to wait for the application to be created.<pause 1s>
+---
+Once the application has been created, navigate to the project directory and run it. The commands for running the application may differ depending on the chosen stack. Now, navigate to the provided  link.
+---
+You'll see the default template's editor page, displaying a simple node editor layout. Additionally, you can explore other templates by modifying the "template" query in the address bar. Now the template with customized nodes is displayed. There are two more templates available: one with a larger number of nodes, and another one embedding the editor into a 3D scene.<pause 2s>
+---
+Now, let's explore the source code located at src rete default ts. <pause 1s>This is the code for the default template that you saw first. <pause 0.3s>Here we see that the framework consists of more than one package, which allows you to connect only the necessary components.<pause 0.5s>
+---
+Moving forward, let's explore the main code responsible for the initialization of the editor.<pause 4s>
+---
+The core of the editor is the NodeEditor class, which is responsible for managing nodes and connections. <pause 2s>Using the generic TypeScript argument, we define the types of nodes and connections it can handle. <pause 3s>The following is the area plugin. It is responsible for displaying the viewport that the user can drag, zoom, and drag other elements such as nodes within it. However, the plugin itself does not render the nodes and connections.
+---
+The next one is the connection plugin. It is responsible for the user's interaction with connections. If your editor is read-only, this plugin is not required.
+---
+Moving on, we have the React integration plugin. It is responsible for rendering nodes, connections, and other built-in components of the framework. Instead of this plugin, you can use any other plugin for your appropriate stack .<pause 0.3s>
+---
+In addition, we have a context menu plugin, which is only needed to add and remove nodes using the mouse.
+
+Now let's see how plugins are connected to our editor. This is done using the use method. This approach is applied consistently across all plugins and facilitates a cascading linkage between them.<pause 1s>
+---
+Certain plugins require connecting presets, which are interchangeable, and you can connect them on demand. For example, for  the React plugin we add a classic preset that is responsible for rendering nodes and connections, as well as a preset for rendering the context menu.<pause 1s>
+---
+As we've chosen dataflow feature, in this scenario, we establish an instance of DataflowEngine from the engine package. <pause 1s>This instance handles data processing between nodes based on the appropriate approach.<pause 3s>
+---
+Let's move on to creating nodes. We have the NumberNode class here, which actually is not provided by the framework. <pause 2s>It's implemented within this template to carry out a particular block in the editor.<pause 1s>
+---
+This class is a subclass of the classic model. <pause 0.75s>Consequently, this allows you to implement your own node classes with the required properties.
+---
+Additionally, it implements the Dataflow interface so that our class can work with the engine and be part of the dataflow processing .
+---
+<pause 1s>In the constructor, we add an output port with a specific socket and label.  <pause 1.5s>We also add a built-in control with an input field. All this is just a model, while the visualization of the node, is handled separately based on this model.<pause 0.75s>
+---
+Let's return to the main code. Here we add a node to the editor. Note that this method is asynchronous, and it's important to wait for the node to be added before we add a connection to it. Similarly, we add a connection. Here we can specify not only the source and target nodes but also their ports, as we apply the classic preset.
+---
+<pause 1.5s>Well, there's one more aspect we need to cover – the auto arrangement plugin. It handles nodes positions relative to each other based on their connections. When you invoke the layout method, it's setting the position of nodes.
+---
+<pause 1s>You might be wondering why we see so much code for such a simple example. The answer is that it gives you an understanding of how everything works and provides you with the opportunity to flexibly configure it
+---
+<pause 1s>Finally,  the integration of the editor into our application. We have a built-in hook, but If you're using another stack, the approach will be slightly different. The principle is always the same – you just need to provide it with an HTML element into which the editor will be injected.<pause 1s>
+---
+<pause 1s>If you're interested in learning more, please refer to the documentation. There you'll discover more comprehensive details about the features and how to make use of them.
+---
+<pause 0.5s>It covers various aspects, ranging from high-level guides to API documentation. <pause 1.5s>It's recommended to start with the first guide and then proceed to the topics of interest. <pause 3s>If you're looking to migrate your application from the initial framework version, you can use the migration guide. Here, the key points are outlined. If you haven't found what you're looking for, you can use the search function. For instance, let's learn how to create looped connections. <pause 1s>The answer can be found on the Frequently Asked Questions page. <pause 3s>You can also review all of them to get a better understanding of the framework.<pause 2s> For example, when you modify properties in a node, you might notice that they aren't re-rendered. This happens because they aren't reactive, and you need to manually trigger a node update.
+---
+If you couldn't find the answer to your question, you can ask it on our Discord server or search among existing questions.<pause 0.5s>
+---
+Let's take a look at the API page.<pause 1s> Here, you'll find documentation directly related to the APIs of the packages themselves. Unlike guides, this documentation is a bit more complex for beginners to learn from, but it includes descriptions of all the public interfaces that aren't always mentioned in guides.<pause 1s>
+---
+<pause 1s>Alternatively, you can start with examples and their source code. <pause 2s>Let's take a look at this example.<pause 4s> It showcases what we've already discussed; the difference is that you don't need to create the application locally but can fork this example from Codesandbox and experiment with it.<pause 4s>
+---
+Don't forget to follow us on social media to stay updated!
+---
+
+
+

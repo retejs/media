@@ -12,7 +12,7 @@ export function AppPreview() {
   const frame = useCurrentFrame()
   const { fps } = useVideoConfig()
   const scrollOffset = 220
-  const timings = [12, 5, 5, 5]
+  const timings = [12, 5, 4, 5]
   const start = timings.reduce((arr, t, i) => ([...arr, arr[i] + t]), [0])
   const address = useTypewriting(
     [
