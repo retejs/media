@@ -13,7 +13,7 @@ import { useFrames } from '../shared/frames';
 import { ShowcaseVideo } from '../shared/ShowcaseVideo';
 import { Showcase } from '../shared/Showcase';
 import { LogoFrame } from './frames/logo';
-import { Examples } from './frames/examples';
+import { Final } from '../shared/frames/final';
 
 import audioFile from '../../assets/audio.mp3'
 import { IntegrationFeature } from './frames/integration';
@@ -27,44 +27,44 @@ export const Intro: React.FC = () => {
     <AbsoluteFill style={{ backgroundColor: '#fff' }}>
       <Audio src={audioFile} startFrom={10} />
       <Series>
-        {frame(5, 'white', <LogoFrame />)}
-        {frame(3, 'white', <CaptionFrame title="Unleash the power of visual programming" />)}
-        {frame(6.5, 'white', <Showcase title="Create tailorable visual interfaces">
+        {frame(5, {}, <LogoFrame />)}
+        {frame(3, {}, <CaptionFrame title="Unleash the power of visual programming" />)}
+        {frame(6.5, {}, <Showcase title="Create tailorable visual interfaces">
           <ShowcaseVideo src={chatbot} start={0.1} rate={1.5} />
         </Showcase>)}
-        {frame(5.5, 'black', <Showcase title="Enhance node editor with 3D embedding">
+        {frame(5.5, { color: 'black' }, <Showcase title="Enhance node editor with 3D embedding">
           <ShowcaseVideo src={video3d} start={0.5} rate={1.9} />
         </Showcase>)}
-        {frame(6.7, 'white', <Showcase title="Bridge textual and visual programming via code generation">
+        {frame(6.7, {}, <Showcase title="Bridge textual and visual programming via code generation">
           <ShowcaseVideo src={codegen} start={0.5} rate={1.4} />
         </Showcase>)}
-        {frame(2, 'white', <CaptionFrame title={<>Advantages<br />&<br />Features</>} />)}
-        {frame(4.5, 'white', <Showcase title="Integration with frameworks">
+        {frame(2, {}, <CaptionFrame title={<>Advantages<br />&<br />Features</>} />)}
+        {frame(4.5, {}, <Showcase title="Integration with frameworks">
           <IntegrationFeature />
         </Showcase>)}
-        {frame(6, 'white', <Showcase title="Extensive customization capabilities">
+        {frame(6, {}, <Showcase title="Extensive customization capabilities">
           <ShowcaseVideo src={undirectedVideo} start={0.2} rate={1} />
         </Showcase>)}
-        {frame(7.5, 'white', <Showcase title="Built-in dataflow & control flow capabilities">
+        {frame(7.5, {}, <Showcase title="Built-in dataflow & control flow capabilities">
           <ShowcaseVideo src={engineVideo} start={0.6} rate={1} />
         </Showcase>)}
-        {frame(5.5, 'white', <Showcase title="Graph layouting">
+        {frame(5.5, {}, <Showcase title="Graph layouting">
           <ShowcaseVideo src={arrangeVideo} start={1} rate={0.8} />
         </Showcase>)}
-        {frame(5.5, 'white', <Showcase title="Minimap">
+        {frame(5.5, {}, <Showcase title="Minimap">
           <ShowcaseVideo src={minimapVideo} start={0.6} rate={1.2} />
         </Showcase>)}
-        {frame(6.7, 'white', <Showcase title="Parent-child node relationships">
+        {frame(6.7, {}, <Showcase title="Parent-child node relationships">
           <ShowcaseVideo src={scopesVideo} start={0.2} rate={1} />
         </Showcase>)}
-        {frame(7.5, 'white', <Showcase title="Undo/redo">
+        {frame(7.5, {}, <Showcase title="Undo/redo">
           <HistoryFeature />
         </Showcase>)}
-        {frame(7, 'white', <Showcase title="Graph methods">
+        {frame(7, {}, <Showcase title="Graph methods">
           <StructuresFeature />
         </Showcase>)}
-        {frame(12.7, 'white', <AbsoluteFill>
-          <Examples />
+        {frame(12.7, {}, <AbsoluteFill>
+          <Final />
         </AbsoluteFill>)}
       </Series>
     </AbsoluteFill>
