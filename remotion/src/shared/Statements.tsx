@@ -32,10 +32,10 @@ const DarkStatementStyles = styled(StatementStyles)`
 `
 
 
-export function Statement(props: { start: number, end: number, theme?: 'dark' | 'light', children: React.ReactNode }) {
+export function Statement({ theme, start, end, children, ...props }: { start: number, end: number, theme?: 'dark' | 'light', children: React.ReactNode }) {
   return (
-    <HighlightTitle component={props.theme === 'dark' ? DarkStatementStyles : StatementStyles} start={props.start} end={props.end}>
-      {props.children}
+    <HighlightTitle {...props} component={theme === 'dark' ? DarkStatementStyles : StatementStyles} start={start} end={end}>
+      {children}
     </HighlightTitle>
   )
 }

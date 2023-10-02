@@ -4,10 +4,10 @@ import { styled } from 'styled-components'
 
 export const HighlightTitleStyle = styled.div`
   background: #fff;
-  box-shadow: 0px 8px 16px 0px #02020247;
+  box-shadow: 0 0.16em 0.32em 0 #02020247;
   border-radius: 1em;
   font-size: 50px;
-  padding: 20px 40px;
+  padding: 0.4em 0.8em;
   font-family: Ubuntu;
   position: absolute;
   bottom: 5%;
