@@ -28,7 +28,7 @@ export function useTypewriting(texts: string[], inputRange: number[], outputRang
   const total = removing.length + appending.length
   const chunks = [
     ...new Array(removing.length).fill(0).map((_, i) => removing.substring(0, removing.length - i)),
-    ...new Array(appending.length).fill(0).map((_, i) => appending.substring(0, i + 1)),
+    ...new Array(appending.length).fill(0).map((_, i) => appending.substring(0, i)),
   ]
   const append = chunks[Math.floor(k * total)] || ''
 
