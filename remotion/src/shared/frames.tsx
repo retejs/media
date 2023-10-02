@@ -8,6 +8,12 @@ export function useStartFrame() {
   return frame - Math.round(fadeDuration * videoConfig.fps)
 }
 
+export function useDurationInFrames() {
+  const { durationInFrames, fps } = useVideoConfig();
+
+  return durationInFrames - fadeDuration * fps
+}
+
 export function useFrames() {
   const videoConfig = useVideoConfig();
 

@@ -1,6 +1,7 @@
 import { Composition } from 'remotion';
 import { Intro } from './Intro';
 import { GettingStarted } from './GettingStarted';
+import { ThousandsOfNodes, schema as tonScheme } from './ThousandsOfNodes';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -20,6 +21,18 @@ export const RemotionRoot: React.FC = () => {
 				fps={30}
 				width={1920}
 				height={1080}
+			/>
+			<Composition
+				id="ThousandsOfNnodes"
+				component={ThousandsOfNodes}
+				durationInFrames={58.4 * 30}
+				fps={30}
+				width={1920}
+				height={1080}
+				defaultProps={{
+					preview: false
+				}}
+				schema={tonScheme}
 			/>
 		</>
 	);
